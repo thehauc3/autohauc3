@@ -2,7 +2,6 @@
 const http = require('http');
 const express = require('express');
 const app = express();
-const needle = require('needle');
 
 app.get("/", (req, res) => {
   console.log(Date.now() + " Ping Received");
@@ -10,15 +9,6 @@ app.get("/", (req, res) => {
 });
 
 app.listen(process.env.PORT);
-setInterval(() => {
-  needle.get('http://'+process.env.PROJECT_DOMAIN+'.glitch.me/', function(error, response) {
-    if (!error && response.statusCode == 200) {
-      console.log("needle get success");
-    } else {
-      console.log("needle get error: "+error);
-    }
-  });
-}, 4*60*1000);
 
 //Ip grabber
 const URL = "http://autohauc3.glitch.me/verify/";
