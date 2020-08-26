@@ -4,7 +4,6 @@ const express = require('express');
 const app = express();
 
 app.get("/", (req, res) => {
-  console.log(Date.now() + " Ping Received");
   res.sendStatus(200);
 });
 
